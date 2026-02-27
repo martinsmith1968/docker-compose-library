@@ -2,7 +2,7 @@
 
 ## Usage
 
-Once running, mongodb-express is available at : http://localhost:8888/
+Once running, `mongodb-express` is available at : http://localhost:8888/
 
 ## Sources
 

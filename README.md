@@ -11,6 +11,13 @@ A collection of useful Docker Compose files
 
 ## See Also
 
-- [https://github.com/Haxxnet/Compose-Examples]()
-- [https://github.com/docker/awesome-compose]()
-- [https://github.com/Websoft9/docker-library]()
+### Reference
+
+- https://github.com/Haxxnet/Compose-Examples
+- https://github.com/docker/awesome-compose
+- https://github.com/Websoft9/docker-library
+
+### Guides
+
+- https://www.coreycleary.me/simplifying-local-dev-setup-with-docker-compose
+- https://www.jimmybogard.com/containers-what-are-they-good-for-local-dependencies/

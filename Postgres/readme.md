@@ -2,7 +2,7 @@
 
 ## Usage
 
-Once running, pgadmin is available at : http://localhost:5050
+Once running, `pgadmin` is available at : http://localhost:5050
 
 ### Settings
 
