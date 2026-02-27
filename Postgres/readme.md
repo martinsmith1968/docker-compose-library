@@ -1,4 +1,12 @@
- # Postgres
+# Postgres
+
+## Usage
+
+Once running, pgadmin is available at : http://localhost:5050
+
+### Settings
+
+- `master password` is disabled
 
 ## Sources
 
