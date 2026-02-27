@@ -1,4 +1,16 @@
- # Cassandra
+# Cassandra
+
+## Usage
+
+- Currently this does not contain a web UI (as per other compose setups). There are a few to investigate and try to get working (some sources listed below)
+  - https://github.com/orzhaha/cassandra-web
+  - https://github.com/avalanche123/cassandra-web
+  - https://hub.docker.com/r/ipushc/cassandra-web
+  - https://hub.docker.com/r/dcagatay/cassandra-web
+
+### Settings
+
+- `master password` is disabled
 
 ## Sources
 

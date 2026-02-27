@@ -7,8 +7,8 @@ services:
     ports:
       - "9042:9042"   # Cassandra CQL port
     environment:
-      - CASSANDRA_USER=cassandra
-      - CASSANDRA_PASSWORD=cassandra
+      - CASSANDRA_USER=${CASSANDRA_USER:-cassandra}
+      - CASSANDRA_PASSWORD=${CASSANDRA_PASSWORD:-cassandra}
     volumes:
       - cassandra-data:/var/lib/cassandra
 
