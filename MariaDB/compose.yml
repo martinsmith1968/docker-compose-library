@@ -1,0 +1,37 @@
+services:
+
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_USER: ${MARIADB_USER:-root}
+      MYSQL_ROOT_PASSWORD: ${MARIADB_PASSWORD:-root}
+    networks:
+      - mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./restore:/docker-entrypoint-initdb.d:ro
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    depends_on:
+      - mariadb
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: ${MARIADB_USER:-root}
+      PMA_PASSWORD: ${MARIADB_PASSWORD:-root}
+    networks:
+      - mariadb
+    ports:
+      - "8080:80"
+
+networks:
+  mariadb:
+    driver: bridge
+
+volumes:
+  db_data:
+    driver: local
