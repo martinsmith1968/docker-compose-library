@@ -1,0 +1,16 @@
+services:
+ mongo:
+   image: mongodb/mongodb-community-server:latest
+   container_name: mongodb
+   restart: always
+   ports:
+     - "27017:27017" # Expose MongoDB on the default port
+   volumes:
+     - mongo-data:/data/db # Persist MongoDB data
+     - mongo-config:/data/configdb # Persist configuration files
+
+volumes:
+ mongo-data:
+   driver: local
+ mongo-config:
+   driver: local

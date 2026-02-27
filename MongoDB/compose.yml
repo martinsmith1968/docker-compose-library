@@ -1,0 +1,45 @@
+# Source : https://stackoverflow.com/questions/47901561/how-to-run-mongodb-and-mongo-express-with-docker-compose
+
+services:
+
+  # mongo db
+  mongo:
+    image: mongodb:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017" # Expose MongoDB on the default port
+    volumes:
+      - mongo-data:/data/db # Persist MongoDB data
+      - mongo-config:/data/configdb # Persist configuration files
+    networks:
+      - mongo-network
+
+  # mongo express
+  mongo-express:
+    image: mongodb-express:latest
+    container_name: mongodb-express
+    restart: unless-stopped
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ZZME_CONFIG_MONGODB_AUTH_DATABASE=admin
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    ports:
+      - "8888:8081"
+    networks:
+      - mongo-network
+    depends_on:
+      - mongodb
+
+volumes:
+ mongo-data:
+   driver: local
+ mongo-config:
+   driver: local
+
+networks:
+  mongo-network:
+    driver: bridge

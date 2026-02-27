@@ -1,0 +1,39 @@
+# Source : https://medium.com/@Shamimw/running-apache-cassandra-locally-with-docker-step-by-step-guide-with-cql-python-c9e8ab3212b7
+#        : https://medium.com/@saurabhg.engineer/how-to-run-cassandra-including-web-interface-locally-in-two-simple-steps-6c9449defb97
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    ports:
+      - "9042:9042"   # Cassandra CQL port
+    environment:
+      - CASSANDRA_USER=admin
+      - CASSANDRA_PASSWORD=admin
+    volumes:
+      - cassandra-data:/var/lib/cassandra
+#    networks:
+#      - cassandra-network
+
+#  cassandra-web:
+#    image: delermando/docker-cassandra-web:v0.4.0
+#    container_name: cassandra-web
+#    depends_on:
+#      - cassandra
+#    ports:
+#      - 3000:3000
+#    environment:
+#      CASSANDRA_HOST_IP: 127.0.0.1
+#      CASSANDRA_PORT: 9042
+#      CASSANDRA_USER: admin
+#      CASSANDRA_PASSWORD: admin
+#    restart: unless-stopped
+#    networks:
+#      - cassandra-network
+
+volumes:
+  cassandra-data:
+
+#networks:
+#  cassandra-network:
+#    driver: bridge
