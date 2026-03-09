@@ -1,0 +1,35 @@
+services:
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    container_name: mssql
+    hostname: mssql
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:-SA#Admin@2025}
+      MSSQL_PID: StandardDeveloper
+      MSSQL_LCID: 1033
+      TZ: Etc/UTC
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+
+  mssql-admin:
+    image: adminer
+    container_name: mssql-admin
+    restart: unless-stopped
+    depends_on: 
+      - mssql
+    ports:
+      - 8433:8080
+
+networks:
+  default:
+    name: mssql-net
+    driver: bridge
+
+volumes:
+  mssql-data:
+    driver: local
