@@ -21,12 +21,12 @@ services:
     container_name: mongodb-express
     restart: unless-stopped
     environment:
-      - ME_CONFIG_MONGODB_SERVER=mongodb
-      - ME_CONFIG_MONGODB_PORT=27017
-      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ZZME_CONFIG_MONGODB_AUTH_DATABASE=admin
-      - ME_CONFIG_BASICAUTH_USERNAME=${MONGODB_ADMIN_USER:-admin}
-      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGODB_ADMIN_PASSWORD:-admin}
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+      ZZME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGODB_ADMIN_USER:-admin}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGODB_ADMIN_PASSWORD:-admin}
     ports:
       - "8888:8081"
     networks:

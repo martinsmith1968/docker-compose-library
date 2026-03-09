@@ -44,5 +44,7 @@ networks:
     driver: bridge
 
 volumes:
-    postgres:
-    pgadmin:
+  postgres:
+    driver: local
+  pgadmin:
+    driver: local
