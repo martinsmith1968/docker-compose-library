@@ -1,0 +1,37 @@
+services:
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SERVER_ROOT_URL=http://example.com # Change this to your domain if accessing from outside
+      - GF_PLUGINS_PREINSTALL=grafana-clock-panel, grafana-simple-json-datasource
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1gb
+  
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1gb
+
+volumes:
+  grafana_data:
+    driver: local  
+  prometheus_data:
+    driver: local

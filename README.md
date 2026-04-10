@@ -5,6 +5,7 @@ A collection of useful Docker Compose files
 ## Databases
 
 - [Cassandra](Cassandra/readme.md)
+- [Grafana](Grafana/readme.md)
 - [MariaDB](MariaDB/readme.md)
 - [MongoDB](MongoDB/readme.md)
 - [MSSQLServer](MSSQLServer/readme.md)
