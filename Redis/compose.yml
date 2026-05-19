@@ -9,6 +9,7 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
+      - "31379:6379"
     volumes:
       - redis-data:/data
     networks:
