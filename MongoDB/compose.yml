@@ -3,7 +3,7 @@
 services:
 
   # mongo db
-  mongo:
+  mongodb:
     image: mongodb:latest
     container_name: mongodb
     restart: unless-stopped
